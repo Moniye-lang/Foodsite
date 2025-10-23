@@ -1,0 +1,18 @@
+.notmain{
+    background-image:url('/image 111.png') ;
+    background-repeat: no-repeat;
+}
+.slideup2{
+    animation: slidetop 1s ease forwards;
+}
+
+@keyframes slidetop {
+    from{
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
