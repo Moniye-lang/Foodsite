@@ -43,7 +43,7 @@ export default function Homemenu() {
                             key={index} 
                             className="menu-card w-[270px] h-[320px] bg-[#fff] border-2 rounded-[10px] border-[rgba(128,128,128,0.7)] grid items-center justify-center opacity-0"
                         >
-                            <item.Icon className="text-[30px] text-[#333] bg-[rgba(128,128,128,0.2)] lg:ml-[70px] w-[70px] h-[60px] p-[10px] rounded-full mt-[30px]" />
+                            <item.Icon className="text-[30px] m-auto text-[#333] bg-[rgba(128,128,128,0.2)] lg:ml-[70px] w-[70px] h-[60px] p-[10px] rounded-full mt-[30px]" />
                             <p className="text-[24px] font-[550] text-center">{item.label}</p>
                             <p className="mb-[10px] text-center px-2 text-sm">
                                 In the new era of technology we <br /> look in the future with certainty <br /> and pride for our life.
