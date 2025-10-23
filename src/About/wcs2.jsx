@@ -1,6 +1,6 @@
 export default function Wcs() {
     return (
-        <div className="min-h-[80vh] mt-[100px] px-4">
+        <div className="min-h-[80vh] pb-[20px] mt-[100px] px-4">
             <div className="text-[32px] md:text-[50px] text-center mb-[50px] font-[560]">What Our Customers Say</div>
             <div className="flex flex-col lg:flex-row gap-[30px] items-center lg:items-start justify-center">
                 <div className="text-[#AD343E] font-[560] bg-[rgb(128,128,128,5%)] w-full max-w-[370px] h-[auto] relative rounded-[10px]">

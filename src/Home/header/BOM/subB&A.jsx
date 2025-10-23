@@ -6,7 +6,7 @@ export default function SubBandA() {
   const [cards] = useState(subBA)
 
   return (
-    <div className="bg-[rgb(128,128,128,0.2)] min-h-[135vh] text-[#333] px-4 sm:px-8">
+    <div className="bg-[rgb(128,128,128,0.2)] pb-[30px] min-h-[135vh] text-[#333] px-4 sm:px-8">
 
       <div className="flex flex-col sm:flex-row sm:justify-between sm:w-[86.5%] sm:ml-[100px] relative">
         <p className="text-[32px] sm:text-[40px] md:text-[50px] mt-[40px] sm:mt-[100px]">

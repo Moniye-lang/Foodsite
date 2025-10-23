@@ -35,7 +35,7 @@ export default function Footer() {
         </div>
 
         <div className="grid gap-[20px]">
-          <div className="font-semibold text-[17px]">Pages</div>
+          <div className="font-semibold text-[19px]">Pages</div>
           <div className="grid gap-[15px] text-[#fffafa9e] text-sm">
             <Link to='/'>Home</Link>
             <Link to='/MainAbout'>About</Link>
