@@ -1,6 +1,6 @@
 .main{
    height: 95vh;
-   background-image: url('image 110.png');
+   background-image: url('/image 110.png');
    background-repeat: no-repeat;
    background-size:cover;
 }
