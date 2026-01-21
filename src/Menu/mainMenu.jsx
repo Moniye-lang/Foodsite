@@ -65,15 +65,15 @@ export default function MainMenu1() {
         </button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[20px] gap-y-[30px] mt-[50px] px-4 justify-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[px] gap-y-[30px] mt-[50px] px-8 justify-center">
         {food.map((item) => (
           <div key={item.id} className=" m-auto">
             <div>
               <img
-                src={item.img} alt="" className="h-[250px] w-full max-w-[270px] rounded-t-[20px] object-cover"/>
+                src={item.img} alt="" className="min-h-[250px] w-full max-w-[300px] rounded-t-[20px] object-cover"/>
             </div>
 
-            <div className="w-full max-w-[270px] border-[rgb(128,128,128,40%)] border-2 rounded-b-[20px] border-t-0 mt-[-20px] p-[10px]">
+            <div className="w-full max-w-[300px] border-[rgb(128,128,128,40%)] border-2 rounded-b-[20px] border-t-0 mt-[-20px] p-[10px]">
               <br />
               <div className="text-center mt-[20px] text-[#AD343E] text-[19px] font-[510]">
                 {item.Price}

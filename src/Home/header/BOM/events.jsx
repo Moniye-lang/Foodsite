@@ -25,13 +25,13 @@ export default function Events() {
   }, []);
 
   return (
-    <div className="opacity-0 events-section min-h-screen px-4 py-10">
+    <div className="opacity-0 events-section min-h-[60vh] px-4 py-10">
       <div className="text-[30px] md:text-[42px] font-[550] mb-10 text-center md:text-left md:ml-[135px]">
         We also offer unique <br className="hidden md:block" />
         services for your events
       </div>
 
-      <div className="flex flex-wrap justify-center gap-[30px]">
+      <div className="flex flex-wrap justify-center gap-x-20 gap-y-10">
         {card.map((item) => (
           <div
             key={item.id}

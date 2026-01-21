@@ -23,7 +23,7 @@ export default function M_about() {
   }, []);
 
   return (
-    <div className="about-section opacity-0 flex flex-col lg:flex-row h-auto lg:h-[100vh] bg-[rgb(128,128,128,0.15)] items-center justify-evenly px-4 py-10 gap-10">
+    <div className="about-section opacity-0 flex flex-col lg:flex-row h-auto lg:h-[h] bg-[rgb(128,128,128,0.15)] items-center justify-evenly px-4 py-14 gap-10">
       <div className="relative w-full max-w-[500px] h-[500px]">
         <div className="notmain h-full w-full relative rounded-[10px] bg-gray-300/20">
           <div className="absolute bg-[#333] text-white w-[290px] h-[240px] rounded-[20px] grid bottom-0 right-0 translate-y-[20px] translate-x-[10px] p-4">

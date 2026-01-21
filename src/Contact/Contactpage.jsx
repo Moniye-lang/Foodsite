@@ -5,7 +5,7 @@ export default function Contact() {
         window.scrollTo({ top: 0, behavior: "smooth" });
       }, []);
     return (
-        <div className="min-h-screen bg-[linear-gradient(to_bottom,rgb(128,128,128,0.09)_50%,#fff_50%)] flex flex-col">
+        <div className="min-h-[70vh] bg-[linear-gradient(to_bottom,rgb(128,128,128,0.09)_50%,#fff_50%)] flex flex-col">
             <div className="text-[50px] md:text-[70px] text-[#333] text-center mt-6 md:mt-10">
                 Contact Us
             </div>

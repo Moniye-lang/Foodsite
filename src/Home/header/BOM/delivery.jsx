@@ -2,7 +2,7 @@ import { Clock4,ShoppingCart,ReceiptText } from "lucide-react"
 
 export default function Delivery(){
     return(
-        <div className="bg-[rgb(128,128,128,10%)] flex flex-col-reverse md:flex-row h-auto md:h-[120vh] items-center justify-evenly px-[20px] py-[50px]">
+        <div className="bg-[rgb(128,128,128,10%)] flex flex-col-reverse md:flex-row min-h-[60vh] items-center justify-evenly px-[20px] py-[50px]">
             <div className="flex lg:flex-row flex-col gap-[20px]">
                 <div className="mt-[10px]"><img src="mid-shot-chef-holding-plate-with-pasta-making-ok-sign 1.png" alt="" /></div>
                 <div className="grid lg:mt-[40px] m-auto"> 

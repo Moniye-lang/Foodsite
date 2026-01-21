@@ -7,7 +7,7 @@ export default function About() {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }, []);
   return (
-    <div className="flex flex-col-reverse lg:flex-row h-auto lg:h-[100vh] bg-[rgb(128,128,128,15%)] items-center justify-evenly px-[20px] py-[50px] gap-[50px]">
+    <div className="flex flex-col-reverse lg:flex-row min-h-[70vh] bg-[rgb(128,128,128,15%)] items-center justify-evenly px-[20px] py-[50px] gap-[50px]">
       <div className="relative flex flex-col items-center">
         <img
           src="image 111.png"

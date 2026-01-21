@@ -26,12 +26,12 @@ export default function Homemenu() {
     }, []);
 
     return (
-        <div className="min-h-screen px-4 py-[90px] flex flex-col items-center bg-white">
+        <div className="min-h-[50vh] px-4 py-[90px] flex flex-col items-center bg-white">
             <p className="text-[32px] md:text-[60px] text-[#333] font-medium text-center mb-[50px]">
                 Browse Our Menu
             </p>
 
-            <div className="flex flex-wrap justify-center gap-[30px] max-w-[1200px]">
+            <div className="flex flex-wrap justify-center gap-[0px] gap-x-20 gap-y-10 max-w-[2000px]">
                 {
                     [
                      { Icon: Coffee, label: "Breakfast" },

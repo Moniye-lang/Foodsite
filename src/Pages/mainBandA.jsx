@@ -17,17 +17,17 @@ import { Link } from "react-router-dom"
                 </div>
 
              
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-[60px] gap-x-[20px] px-[20px] justify-items-center mt-[70px]">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-[60px] gap-x-[px] px-[20px] justify-items-center mt-[70px]">
 
                 {
                  data.map((items)=>(
-                    <div key={items.id} className="m-auto">
-                        <div><img src={items.img} alt="" className="rounded-t-[10px] w-[290px]"/></div>
-                        <div className="grid p-[30px] w-[290px] bg-[#fff] rounded-b-[10px] shadow-2xl">
+                    <Link to={`/maindata/${items.id}`} key={items.id} className="m-auto hover:scale-105 transition-all duration-[.8s] hover:text-blue-500">
+                        <div><img src={items.img} alt="" className="rounded-t-[10px] w-[320px]"/></div>
+                        <div className="grid p-[30px] w-[320px] bg-[#fff] rounded-b-[10px] shadow-2xl">
                             <div className="font-[520] text-[13px] text-[#333]">{items.date}</div>
-                            <Link to={`/maindata/${items.id}`} className="font-medium hover:text-blue-500"> {items.title}</Link>
+                            <Link to={`/maindata/${items.id}`} className="font-medium "> {items.title}</Link>
                         </div>
-                    </div>
+                    </Link>
                  ))   
                 }
                 </div>

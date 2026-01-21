@@ -1,8 +1,8 @@
 export default function Wcs() {
     return (
-        <div className="min-h-[80vh] pb-[20px] mt-[100px] px-4">
-            <div className="text-[32px] md:text-[50px] text-center mb-[50px] font-[560]">What Our Customers Say</div>
-            <div className="flex flex-col lg:flex-row gap-[30px] items-center lg:items-start justify-center">
+        <div className="min-h-[50vh] mt-[70px] px-4 py-10 mb-[30px]">
+            <div className="text-[32px] md:text-[50px] text-center mb-[50px] font-[560] ">What Our Customers Say</div>
+            <div className="flex flex-col lg:flex-row gap-x-20 gap-y-15 items-center lg:items-start justify-center">
                 <div className="text-[#AD343E] font-[560] bg-[rgb(128,128,128,5%)] w-full max-w-[370px] h-[auto] relative rounded-[10px]">
                     <p className="text-[20px] md:text-[22px] mt-[20px] ml-[45px]">“The best restaurant”</p>
                     <p className="text-[#333] p-[25px] md:p-[43px] text-sm md:text-base">Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles.</p>
