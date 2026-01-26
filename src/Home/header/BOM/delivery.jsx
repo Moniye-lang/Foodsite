@@ -1,33 +1,81 @@
-import { Clock4,ShoppingCart,ReceiptText } from "lucide-react"
+import React from "react";
+import { Clock4, ShoppingCart, ReceiptText } from "lucide-react";
 
-export default function Delivery(){
-    return(
-        <div className="bg-[rgb(128,128,128,10%)] flex flex-col-reverse md:flex-row min-h-[60vh] items-center justify-evenly px-[20px] py-[50px]">
-            <div className="flex lg:flex-row flex-col gap-[20px]">
-                <div className="mt-[10px]"><img src="mid-shot-chef-holding-plate-with-pasta-making-ok-sign 1.png" alt="" /></div>
-                <div className="grid lg:mt-[40px] m-auto"> 
-                    <div><img src="sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food 1.png" alt="" /></div>
-                    <div className="mt-[20px]"><img src="sadj-iron-pot-with-various-salads 1.png" alt="" /></div>
-                </div>
+/**
+ * 10/10 UX STRATEGY:
+ * 1. Image Bento Grid: Uses a structured layout to prevent images from shifting.
+ * 2. Copywriting: Updated placeholder text to be relevant to food delivery.
+ * 3. Icon Consistency: Unified the styling for Lucide icons for a premium feel.
+ */
+
+export default function Delivery() {
+  const features = [
+    { Icon: Clock4, text: "Delivery within 30 minutes" },
+    { Icon: ReceiptText, text: "Best Offer & Prices" },
+    { Icon: ShoppingCart, text: "Online Services Available" },
+  ];
+
+  return (
+    <section className="bg-[#F9F9FB] py-20 md:py-28">
+      <div className="max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+        
+        {/* LEFT SIDE: THE IMAGE GRID (Bento Style) */}
+        <div className="w-full lg:w-1/2 flex gap-4 md:gap-6">
+          <div className="w-3/5">
+            <img 
+              src="mid-shot-chef-holding-plate-with-pasta-making-ok-sign 1.png" 
+              alt="Professional Chef" 
+              className="w-full h-full object-cover rounded-[2rem] shadow-xl"
+            />
+          </div>
+          <div className="w-2/5 flex flex-col gap-4 md:gap-6">
+            <div className="h-1/2">
+              <img 
+                src="sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food 1.png" 
+                alt="Thai Food Hot Pot" 
+                className="w-full h-full object-cover rounded-[2rem] shadow-lg"
+              />
             </div>
-                <div className="">
-                    <p className="text-[50px] text-[#333]">Fastest Food <br /> Delivery In City</p>
-                    <br />
-                    <p className="text-[#333]">Our visual designer lets you quickly and of drag a down <br /> your way to customa pps for both keep desktops.</p>
-
-                    <div className="mt-[40px]">
-                        <p></p>
-                        <div className="flex mt-[20px] gap-[20px] text-[17px] font-[510]"><Clock4 className="bg-[#AD343E] rounded-[50%] p-[6px] text-[#fff]"></Clock4>  
-                        <p className="text-[#333]"> Delivery within 30 minutes </p>
-                        </div>
-                        <div className="flex mt-[20px] gap-[20px] text-[17px] font-[510]"><ReceiptText className="bg-[#AD343E] rounded-[50%] p-[6px] text-[#fff]"></ReceiptText> 
-                        <p className="text-[#333]">Best Offer & Prices</p>
-                        </div>
-                        <div className="flex mt-[20px] gap-[20px] text-[17px] font-[510]"><ShoppingCart className="bg-[#AD343E] rounded-[50%] p-[6px] text-[#fff]"></ShoppingCart>
-                        <p className="text-[#333]">Online Services Available</p>
-                        </div>
-                    </div>
-                </div>
+            <div className="h-1/2">
+              <img 
+                src="sadj-iron-pot-with-various-salads 1.png" 
+                alt="Fresh Salads" 
+                className="w-full h-full object-cover rounded-[2rem] shadow-lg"
+              />
+            </div>
+          </div>
         </div>
-    )
+
+        {/* RIGHT SIDE: CONTENT */}
+        
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-[1.1] tracking-tighter">
+            Fastest Food <br /> Delivery In City
+          </h2>
+          
+          <p className="mt-8 text-black/60 text-lg leading-relaxed max-w-[500px] mx-auto lg:mx-0">
+            Our specialized delivery fleet ensures your meals arrive steaming hot 
+            and fresh. Experience the convenience of gourmet dining from the 
+            comfort of your own home.
+          </p>
+
+          <div className="mt-10 space-y-5">
+            {features.map((item, idx) => (
+              <div 
+                key={idx} 
+                className="flex items-center gap-5 p-2 rounded-2xl hover:bg-white hover:shadow-sm transition-all duration-300"
+              >
+                <div className="bg-[#AD343E] p-3 rounded-full text-white shadow-md shadow-[#AD343E]/20">
+                  <item.Icon size={22} strokeWidth={2.5} />
+                </div>
+                <span className="text-lg font-bold text-[#1A1A1A]">
+                  {item.text}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
 }

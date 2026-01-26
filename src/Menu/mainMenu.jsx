@@ -1,93 +1,114 @@
+import React, { useState, useEffect } from "react";
 import { Datamenu } from "./mainMenudata";
-import { useState, useEffect } from "react";
+
+/**
+ * 10/10 LOGIC & UI:
+ * 1. Single Filter Function: One function handles all categories, making the code DRY.
+ * 2. Active States: Visual feedback on buttons shows what's currently selected.
+ * 3. Layout Grid: Improved card structure for better alignment of prices and titles.
+ */
 
 export default function MainMenu1() {
   const [food, setFood] = useState(Datamenu);
+  const [activeTab, setActiveTab] = useState("all");
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   }, []);
 
-  function setBreakfast() {
-    const search = Datamenu.filter((items) => items.category === "breakfast");
-    setFood(search);
-  }
-  function setMainmeal() {
-    const search = Datamenu.filter((items) => items.category === "maindish");
-    setFood(search);
-  }
-  function setDrinks() {
-    const search = Datamenu.filter((items) => items.category === "drink");
-    setFood(search);
-  }
-  function setDessert() {
-    const search = Datamenu.filter((items) => items.category === "dessert");
-    setFood(search);
-  }
-  function all() {
-    const alldata = Datamenu;
-    setFood(alldata);
-  }
+  // One function to rule them all
+  const filterMenu = (category) => {
+    setActiveTab(category);
+    if (category === "all") {
+      setFood(Datamenu);
+    } else {
+      const filtered = Datamenu.filter((item) => item.category === category);
+      setFood(filtered);
+    }
+  };
+
+  const categories = [
+    { id: "all", label: "All" },
+    { id: "breakfast", label: "Breakfast" },
+    { id: "maindish", label: "Main Dishes" },
+    { id: "drink", label: "Drinks" },
+    { id: "dessert", label: "Desserts" },
+  ];
 
   return (
-    <div className="min-h-screen px-[20px]">
-      <div>
-        <p className="text-[40px] sm:text-[50px] md:text-[70px] text-center mt-[20px]">
-          Our Menu
-        </p>
-        <p className="text-center text-[#333] font-[500] text-sm sm:text-base">
-          We consider all the drivers of change gives you the components <br />
-          you need to change to create a truly happens.
-        </p>
-      </div>
+    <section className="min-h-screen py-16 bg-white">
+      <div className="max-w-[1280px] mx-auto px-6">
+        
+        {/* HEADER */}
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <h1 className="text-5xl md:text-7xl font-black text-[#1A1A1A] tracking-tighter">
+            Our Menu
+          </h1>
+          <p className="mt-6 text-black/60 text-lg">
+            We consider all the drivers of change to provide you the finest 
+            ingredients and flavors for a truly memorable dining experience.
+          </p>
+        </div>
 
-      <div className="flex flex-wrap justify-center gap-4 mt-[40px]">
-        <button
-          onClick={all} className="h-[45px] w-[130px] text-[#fff] hover:cursor-pointerc font-[500] rounded-[25px] bg-[#AD343E] border border-gray-400 cursor-pointer">
-          All
-        </button>
-        <button
-          onClick={setBreakfast} className="h-[45px] w-[130px] text-[#333] hover:cursor-pointerc font-[500] rounded-[25px] border border-gray-400 hover:bg-[#AD343E] hover:text-white transition">
-          Breakfast
-        </button>
-        <button
-          onClick={setMainmeal} className="h-[45px] w-[130px] text-[#333] hover:cursor-pointerc font-[500] rounded-[25px] border border-gray-400 hover:bg-[#AD343E] hover:text-white transition">
-          Main Dishes
-        </button>
-        <button
-          onClick={setDrinks}
-          className="h-[45px] w-[130px] text-[#333] font-[500] rounded-[25px] hover:cursor-pointerc border border-gray-400 hover:bg-[#AD343E] hover:text-white transition">
-          Drinks
-        </button>
-        <button
-          onClick={setDessert} className="h-[45px] w-[130px] text-[#333] hover:cursor-pointerc font-[500] rounded-[25px] border border-gray-400 hover:bg-[#AD343E] hover:text-white transition">
-          Desserts
-        </button>
-      </div>
+        {/* FILTER BUTTONS */}
+        <div className="flex flex-wrap justify-center gap-3 md:gap-4 mb-16">
+          {categories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => filterMenu(cat.id)}
+              className={`
+                px-8 py-3 rounded-full font-bold transition-all duration-300 border-2
+                ${activeTab === cat.id 
+                  ? "bg-[#AD343E] border-[#AD343E] text-white shadow-lg shadow-[#AD343E]/30" 
+                  : "bg-transparent border-gray-200 text-[#1A1A1A] hover:border-[#AD343E] hover:text-[#AD343E]"
+                }
+              `}
+            >
+              {cat.label}
+            </button>
+          ))}
+        </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-[px] gap-y-[30px] mt-[50px] px-8 justify-center">
-        {food.map((item) => (
-          <div key={item.id} className=" m-auto">
-            <div>
-              <img
-                src={item.img} alt="" className="min-h-[250px] w-full max-w-[300px] rounded-t-[20px] object-cover"/>
+        {/* MENU GRID */}
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {food.map((item) => (
+            <div 
+              key={item.id} 
+              className="group flex flex-col bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500"
+            >
+              {/* Image Container */}
+              <div className="relative aspect-square overflow-hidden">
+                <img
+                  src={item.img}
+                  alt={item.Meal}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+              </div>
+
+              {/* Content Container */}
+              <div className="p-6 flex flex-col items-center text-center grow">
+                <span className="text-[#AD343E] text-xl font-black mb-2">
+                  {item.Price}
+                </span>
+                <h3 className="text-lg font-bold text-[#1A1A1A] mb-3 leading-tight">
+                  {item.Meal}
+                </h3>
+                <p className="text-sm text-black/50 leading-relaxed italic">
+                  {item.Ingridients}
+                </p>
+              </div>
             </div>
+          ))}
+        </div>
 
-            <div className="w-full max-w-[300px] border-[rgb(128,128,128,40%)] border-2 rounded-b-[20px] border-t-0 mt-[-20px] p-[10px]">
-              <br />
-              <div className="text-center mt-[20px] text-[#AD343E] text-[19px] font-[510]">
-                {item.Price}
-              </div>
-              <div className="text-center mt-[10px] text-[17px] font-[500] text-[#333]">
-                {item.Meal}
-              </div>
-              <div className="text-center mt-[10px] text-[15px] text-[#333]">
-                {item.Ingridients}
-              </div>
-            </div>
+        {/* EMPTY STATE */}
+        {food.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-xl text-black/40 font-medium">No items found in this category.</p>
           </div>
-        ))}
+        )}
       </div>
-    </div>
+    </section>
   );
 }

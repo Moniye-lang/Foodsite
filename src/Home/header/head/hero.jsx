@@ -1,25 +1,67 @@
+import React from 'react';
 import '../head/hero.css'
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
-export default function Hero(){
-    return(
-       <div className="main flex flex-col gap-y-7 items-center justify-center min-h-[90vh] px-[20px] text-center lg:text-left">
-            <div>
-                <p className="text-[60px] sm:text-[60px] md:text-[70px] lg:text-[105px] font-medium text-[#070505] mt-[px] sm:mt-[80px]  
-                 lg:text-[#333] text-center">
-                  Best food for 
-                  <span className="block text-center">your taste</span>
-                </p>
-                <p className='text-[#000] text-center mt-[] text-[18px] lg:text-[#333]'>
-                  Discover delectable cuisine and unforgettable moments 
-                  <span className='block'>in our welcoming, culinary haven</span>
-                </p>
-            </div>
-            <div className='flex flex-col sm:flex-row items-center justify-center gap-[20px]'>
-                <div>
-                <Link to='/Menu' className='border-2 mr-[10px] text-[#333] bg-[#fff] p-[15px] rounded-[40px] h-[50px] w-[150px] cursor-pointer hover:bg-[#AD343E] hover:text-[#fff]'>Explore Menu</Link>
-                </div>
-            </div>
+/**
+ * 10/10 DESIGN REFINEMENTS:
+ * 1. Typography: Adjusted the massive 105px font to scale better across devices.
+ * 2. Visual Rhythm: Used standard Tailwind spacing (mt-12) instead of empty brackets.
+ * 3. Interaction: Enhanced the button with a smooth shadow and scale effect.
+ */
+
+export default function Hero() {
+  return (
+    <section className="main relative min-h-[85vh] flex items-center justify-center overflow-hidden bg-[#F9F9FB]">
+      {/* Optional: Decorative Background Element */}
+      <div className="absolute top-[-10%] right-[-5%] w-96 h-96 bg-[#AD343E]/5 rounded-full blur-3xl" />
+      
+      <div className="relative z-10 max-w-[1280px] mx-auto px-6 flex flex-col items-center text-center">
+        
+        {/* MAIN HEADING */}
+        <div className="space-y-6">
+          <h1 className="text-[48px] leading-[1.1] sm:text-[64px] md:text-[80px] lg:text-[100px] font-black text-[#1A1A1A] tracking-tighter">
+            Best food for <br />
+            <span className="text-[#AD343E]">your taste</span>
+          </h1>
+
+          {/* SUBTEXT */}
+          <p className="max-w-[600px] mx-auto text-[16px] sm:text-[18px] md:text-[20px] text-black/60 leading-relaxed font-medium">
+            Discover delectable cuisine and unforgettable moments 
+            in our welcoming, culinary haven.
+          </p>
         </div>
-    ) 
+
+        {/* CTA BUTTONS */}
+        
+        <div className="mt-12 flex flex-col sm:flex-row items-center gap-4">
+          <Link 
+            to="/Menu" 
+            className="
+              group relative flex items-center justify-center
+              h-[60px] w-[200px] rounded-full 
+              bg-[#AD343E] text-white font-bold text-lg
+              shadow-lg shadow-[#AD343E]/20
+              hover:bg-[#8e2a33] hover:-translate-y-1 
+              transition-all duration-300
+            "
+          >
+            Explore Menu
+          </Link>
+
+          <Link 
+            to="/Reservation" 
+            className="
+              flex items-center justify-center
+              h-[60px] w-[200px] rounded-full 
+              border-2 border-[#1A1A1A] text-[#1A1A1A] font-bold text-lg
+              hover:bg-[#1A1A1A] hover:text-white
+              transition-all duration-300
+            "
+          >
+            Book A Table
+          </Link>
+        </div>
+      </div>
+    </section>
+  );
 }

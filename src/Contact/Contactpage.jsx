@@ -1,66 +1,126 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import { Send } from "lucide-react";
+
+/**
+ * BISTRO BLISS - CONTACT PAGE (v1.1)
+ * REVISIONS:
+ * 1. Fixed JSX comment syntax error.
+ * 2. Added bg-gray-50 to inputs for better visual separation from form.
+ * 3. Standardized rounded-2xl for inputs, textarea, and button.
+ * 4. Added active/focus states for a premium feel.
+ */
 
 export default function Contact() {
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-      }, []);
-    return (
-        <div className="min-h-[70vh] bg-[linear-gradient(to_bottom,rgb(128,128,128,0.09)_50%,#fff_50%)] flex flex-col">
-            <div className="text-[50px] md:text-[70px] text-[#333] text-center mt-6 md:mt-10">
-                Contact Us
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Form Submitted:", formData);
+    alert("Thank you! Your message has been sent successfully.");
+  };
+
+  // Base styling for all inputs to ensure consistency
+  const inputBaseStyle = `
+    w-full p-4 bg-gray-50 border-2 border-gray-200 rounded-2xl
+    text-[#1A1A1A] placeholder:text-gray-400
+    focus:bg-white focus:border-[#AD343E] focus:ring-4 focus:ring-[#AD343E]/10 
+    outline-none transition-all duration-300
+  `;
+
+  return (
+    <section className="min-h-screen bg-[#F2F4F7] py-16 md:py-24 px-6">
+      
+      {/* HEADER SECTION */}
+      <div className="text-center mb-16">
+        <h1 className="text-5xl md:text-7xl font-black text-[#1A1A1A] tracking-tighter">
+          Contact Us
+        </h1>
+        <p className="mt-6 text-black/60 text-lg max-w-xl mx-auto">
+          We consider all the drivers of change to provide you the components 
+          you need to create a truly wonderful dining experience.
+        </p>
+      </div>
+
+      {/* FORM CONTAINER */}
+      
+      <div className="max-w-[800px] mx-auto">
+        <form 
+          onSubmit={handleSubmit}
+          className="bg-white shadow-2xl rounded-[2.5rem] p-8 md:p-12 border border-gray-100"
+        >
+          {/* NAME & EMAIL ROW */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <div className="space-y-2">
+              <label htmlFor="name" className="text-[15px] font-bold text-[#1A1A1A] ml-2">Name</label>
+              <input 
+                id="name"
+                type="text" 
+                placeholder="Enter your name" 
+                required
+                className={inputBaseStyle}
+                onChange={(e) => setFormData({...formData, name: e.target.value})}
+              />
             </div>
-            <div className="block text-[#333] text-[15px] md:text-[17px] text-center px-4 mt-2">
-                We consider all the drivers of change gives you the  
-                <br className="hidden md:block" /> components you need to change to create a truly happens.
+            <div className="space-y-2">
+              <label htmlFor="email" className="text-[15px] font-bold text-[#1A1A1A] ml-2">Email</label>
+              <input 
+                id="email"
+                type="email" 
+                placeholder="Enter email address" 
+                required
+                className={inputBaseStyle}
+                onChange={(e) => setFormData({...formData, email: e.target.value})}
+              />
             </div>
+          </div>
 
-            <form 
-                action="" 
-                className="bg-[#fff] shadow-2xl w-[90%] max-w-[700px] h-auto md:h-[580px] grid items-center justify-center m-auto mt-6 mb-10 rounded-3xl p-6 md:p-0"
-            >
-                <div className="flex flex-col md:flex-row gap-[15px] w-full justify-center">
-                    <div className="grid gap-[10px] w-full md:w-[300px]">
-                        <label htmlFor="name" className="font-medium text-[#333]">Name</label>
-                        <input 
-                            type="text" 
-                            placeholder="Enter your name" 
-                            className="border-[rgb(128,128,128,0.5)] border-2 w-full p-[12px] rounded-3xl"
-                        />
-                    </div>
-                    <div className="grid gap-[10px] w-full md:w-[300px]">
-                        <label htmlFor="email" className="font-medium text-[#333]">Email</label>
-                        <input 
-                            type="email" 
-                            placeholder="Enter email address" 
-                            className="border-[rgb(128,128,128,0.5)] border-2 w-full p-[12px] rounded-3xl"
-                        />
-                    </div>
-                </div>
+          {/* SUBJECT FIELD */}
+          <div className="space-y-2 mb-6">
+            <label htmlFor="subject" className="text-[15px] font-bold text-[#1A1A1A] ml-2">Subject</label>
+            <input 
+              id="subject"
+              type="text" 
+              placeholder="Write a subject" 
+              className={inputBaseStyle}
+              onChange={(e) => setFormData({...formData, subject: e.target.value})}
+            />
+          </div>
 
-                <div className="grid gap-[10px] w-full">
-                    <label htmlFor="subject" className="font-medium text-[#333]">Subject</label>
-                    <input 
-                        type="text" 
-                        placeholder="Write a subject" 
-                        className="border-[rgb(128,128,128,0.5)] border-2 w-full md:w-[600px] p-[12px] rounded-3xl"
-                    />
-                </div>
+          {/* MESSAGE FIELD */}
+          <div className="space-y-2 mb-10">
+            <label htmlFor="message" className="text-[15px] font-bold text-[#1A1A1A] ml-2">Message</label>
+            <textarea 
+              id="message"
+              placeholder="Write your message" 
+              rows="6"
+              className={`${inputBaseStyle} resize-none`}
+              onChange={(e) => setFormData({...formData, message: e.target.value})}
+            ></textarea>
+          </div>
 
-                <div className="grid gap-[10px] w-full">
-                    <label htmlFor="message" className="font-medium text-[#333]">Message</label>
-                    <textarea 
-                        placeholder="Write your message" 
-                        className="border-[rgb(128,128,128,0.5)] border-2 w-full md:w-[600px] h-[130px] p-[12px] rounded-3xl"
-                    ></textarea>
-                </div>
-
-                <button 
-                    className="w-full md:w-[600px] mt-[10px] text-center bg-[#AD343E] p-[12px] rounded-4xl cursor-pointer text-[#fff] font-medium"
-                >
-                    Send
-                </button>
-            </form>
-        </div>
-    )
+          {/* SUBMIT BUTTON */}
+          <button 
+            type="submit"
+            className="
+              w-full py-4 bg-[#AD343E] text-white font-bold rounded-2xl
+              flex items-center justify-center gap-3
+              hover:bg-[#1A1A1A] hover:shadow-xl transition-all duration-300
+              active:scale-[0.98] cursor-pointer
+            "
+          >
+            Send Message <Send size={20} />
+          </button>
+        </form>
+      </div>
+    </section>
+  );
 }
-

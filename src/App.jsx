@@ -8,6 +8,7 @@ import Menu from "./Menu/Menu";
 import MainPage from "./Pages/Mainpages";
 import Articles from "./Pages/Articles";
 import Contact from "./Contact/Contactpage";
+import BookATable from "./Bookatable/BAT";
 import './index.css'
 
 
@@ -21,6 +22,7 @@ export default function App(){
             <Route path="/Menu" element={<Menu/>}></Route>
             <Route path="/MainPage" element={<MainPage/>}></Route>
             <Route path="/Contact" element={<Contact/>}></Route>
+            <Route path="/BookATable" element={<BookATable/>}></Route>
             <Route path="/maindata/:maindataId" element={<Articles/>}></Route>  
         </Routes>
         <Footer></Footer>

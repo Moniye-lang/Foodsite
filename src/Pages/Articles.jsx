@@ -1,108 +1,106 @@
+import React, { useEffect } from "react";
+import { useParams, Link } from "react-router-dom";
 import { Maindata } from "./maindata";
-import { useParams } from "react-router-dom";
-import { Link } from "react-router-dom";
-import { useEffect } from "react";
+import { ChevronLeft } from "lucide-react";
+
+/**
+ * 10/10 UX STRATEGY:
+ * 1. Clean Loop: Replaced manual list divs with a mapped array to handle content dynamically.
+ * 2. Visual Hierarchy: Used varying text sizes and colors to distinguish headers from body text.
+ * 3. Navigation: Added a "Back" button with an icon for better usability.
+ */
 
 export default function Articles() {
   const { maindataId } = useParams();
-  const data = Maindata.filter((item) => item.id === parseInt(maindataId));
-  console.log(data);
+  const article = Maindata.find((item) => item.id === parseInt(maindataId));
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [maindataId]);
-  
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
-  }, []);
+  }, [maindataId]);
+
+  if (!article) {
+    return <div className="py-20 text-center">Article not found.</div>;
+  }
+
+  // Grouping list items for cleaner rendering
+  const listItems = [article.list, article.list2, article.list3, article.list4, article.list5].filter(Boolean);
 
   return (
-    <div className="h-auto w-full">
-      <div></div>
-      <div className="flex flex-col items-center justify-center w-full px-4">
-        {data.map((items) => (
-          <div key={items.id} className="w-full">
-            <div className="text-3xl sm:text-4xl md:text-5xl font-semibold w-full max-w-3xl text-center m-auto p-4">
-              {items.header}
-            </div>
-
-            <div>
-              <img
-                src={items.img} alt="" className="w-full max-w-3xl mx-auto  mt-10 px-4 rounded-2xl" />
-            </div>
-
-            <div className="text-lg sm:text-xl font-medium w-full max-w-3xl mx-auto mt-5 px-4"> {items.header2} </div>
-            <div className="text-[19px] text-[#333] w-full max-w-3xl mx-auto mt-2 mb-2 px-4">{items.body} </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">{items.list} </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list2}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list3}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list4}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list5}
-            </div>
-
-            <div className="text-lg sm:text-xl font-medium w-full max-w-3xl mx-auto mt-5 px-4">
-              {items.header3}
-            </div>
-
-            <div className="text-[19px] text-[#333] w-full max-w-3xl mx-auto mt-2 mb-2 px-4">
-              {items.body}
-            </div>
-
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list2}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list3}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list4}
-            </div>
-            <div className="font-semibold w-full max-w-3xl mx-auto p-1 px-4 text-[#333]">
-              {items.list5}
-            </div>
-
-            <img
-              src="/pexels-suzy-hazelwood-2966196 1 (1).png"
-              alt=""
-              className="w-full max-w-3xl mx-auto rounded-2xl mt-10 px-4"
-            />
-
-            <div className="text-lg sm:text-xl font-medium w-full max-w-3xl mx-auto mt-5 px-4">
-              {items.header3}
-            </div>
-
-            <div className="font-semibold w-full max-w-3xl mx-auto text-[#333] mt-4 px-4 text-[17px] leading-relaxed">
-              Proin faucibus nec mauris a sodales, sed elementum mi tincidunt.
-              Sed eget viverra egestas nisi in consequat. Fusce sodales augue a
-              accumsa Cras sollicitudin, le ligula, porttitor eu, consequat
-              vitae, eleifend ac, enim. Lorem ipsum dolor sit amet, consectetur
-              adipiscing elit lobortis arcu enim urna adipiscing praesent velit
-              viverra sit semper lorem eu cursus ve of all hendrerit elementum
-              morbi curabitur etiam nibh justo, lorem aliquet donec sed sit mi
-              dignissim at ante massa mattis magna sit amet purus gravida quis
-              blandit turpis..
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <br />
-      <div className="h-[40px] w-[160px] flex bg-[#AD343E] rounded-2xl mx-auto text-white font-semibold hover:text-[#AD343E] hover:bg-white transition">
-        <Link to="/MainPage" className="m-auto">
-          Back to page
+    <article className="min-h-screen bg-white pb-20">
+      
+      {/* HEADER SECTION */}
+      <header className="max-w-[800px] mx-auto pt-16 px-6 text-center">
+        <Link 
+          to="/MainPage" 
+          className="inline-flex items-center gap-2 text-[#AD343E] font-bold mb-8 hover:underline"
+        >
+          <ChevronLeft size={20} /> Back to Articles
         </Link>
+        <h1 className="text-4xl md:text-6xl font-black text-[#1A1A1A] leading-tight tracking-tighter">
+          {article.header}
+        </h1>
+      </header>
+
+      {/* FEATURED IMAGE */}
+      
+      <div className="max-w-[1000px] mx-auto mt-12 px-6">
+        <img
+          src={article.img}
+          alt={article.header}
+          className="w-full h-[400px] md:h-[600px] object-cover rounded-[2.5rem] shadow-2xl"
+        />
       </div>
-      <br />
-    </div>
+
+      {/* CONTENT BODY */}
+      <div className="max-w-[800px] mx-auto mt-16 px-6">
+        
+        {/* SECTION 1 */}
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">
+          {article.header2}
+        </h2>
+        <p className="text-lg text-black/70 leading-relaxed mb-8">
+          {article.body}
+        </p>
+
+        {/* DYNAMIC LIST */}
+        <ul className="space-y-4 mb-12">
+          {listItems.map((text, idx) => (
+            <li key={idx} className="flex gap-4 items-start text-lg font-semibold text-black/80">
+              <span className="text-[#AD343E]">•</span> {text}
+            </li>
+          ))}
+        </ul>
+
+        {/* SECTION 2 */}
+        <h2 className="text-2xl md:text-3xl font-bold text-[#1A1A1A] mb-4">
+          {article.header3}
+        </h2>
+        
+        <div className="bg-[#F9F9FB] p-8 rounded-[2rem] border-l-4 border-[#AD343E] italic text-black/70 text-lg mb-12">
+          "Proin faucibus nec mauris a sodales, sed elementum mi tincidunt. Sed eget viverra egestas nisi in consequat. Fusce sodales augue a accumsan."
+        </div>
+
+        {/* SECONDARY IMAGE */}
+        <img
+          src="/pexels-suzy-hazelwood-2966196 1 (1).png"
+          alt="Atmospheric detail"
+          className="w-full rounded-[2rem] mb-12"
+        />
+
+        <p className="text-lg text-black/70 leading-relaxed">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lobortis arcu enim urna adipiscing praesent velit viverra sit semper lorem eu cursus ve of all hendrerit elementum morbi curabitur etiam nibh justo.
+        </p>
+      </div>
+
+      {/* FOOTER CALL TO ACTION */}
+      <footer className="mt-20 text-center">
+        <Link 
+          to="/MainPage" 
+          className="px-10 py-4 bg-[#AD343E] text-white font-bold rounded-full shadow-lg shadow-[#AD343E]/20 hover:bg-[#8e2a33] transition-all inline-block"
+        >
+          Back to Articles
+        </Link>
+      </footer>
+    </article>
   );
 }

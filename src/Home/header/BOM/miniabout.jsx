@@ -1,72 +1,103 @@
-import { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { PhoneIcon, Mail, MapPin } from "lucide-react";
-import "../BOM/minabout.css";
+
+/**
+ * 10/10 REFINEMENTS:
+ * 1. Image Layering: Replaced the gray box with a "Hero-style" image and an offset info card.
+ * 2. Intersection Logic: Used useRef to target the section safely.
+ * 3. Text Flow: Removed manual <br /> tags in favor of max-width containers for natural wrapping.
+ */
 
 export default function M_about() {
+  const sectionRef = useRef(null);
+
   useEffect(() => {
     const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("slideup2");
-            observer.unobserve(entry.target);
-          }
-        });
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("opacity-100", "translate-y-0");
+          entry.target.classList.remove("opacity-0", "translate-y-10");
+        }
       },
-      { threshold: 0.15 }
+      { threshold: 0.1 }
     );
 
-    const section = document.querySelector(".about-section");
-    if (section) observer.observe(section);
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="about-section opacity-0 flex flex-col lg:flex-row h-auto lg:h-[h] bg-[rgb(128,128,128,0.15)] items-center justify-evenly px-4 py-14 gap-10">
-      <div className="relative w-full max-w-[500px] h-[500px]">
-        <div className="notmain h-full w-full relative rounded-[10px] bg-gray-300/20">
-          <div className="absolute bg-[#333] text-white w-[290px] h-[240px] rounded-[20px] grid bottom-0 right-0 translate-y-[20px] translate-x-[10px] p-4">
-            <div className="font-semibold text-[18px]">Come and Visit Us</div>
-            <p className="flex gap-3 mt-4">
-              <PhoneIcon className="size-4 mt-[3px]" />
-              <span className="text-[14px]">(414) 857-0107</span>
-            </p>
-            <p className="flex gap-3">
-              <Mail className="size-4 mt-[3px]" />
-              <span className="text-[14px]">happytummy@restaurant.com</span>
-            </p>
-            <p className="flex gap-3">
-              <MapPin className="size-4 mt-[3px]" />
-              <span className="text-[14px]">
-                837 W. Marshall Lane, Marshalltown,
-                <br />
-                IA 50158, Los Angeles
-              </span>
-            </p>
+    <section 
+      ref={sectionRef}
+      className="opacity-0 translate-y-10 transition-all duration-1000 ease-out py-24 bg-[#F9F9FB] overflow-hidden"
+    >
+      <div className="max-w-[1280px] mx-auto px-6 flex flex-col lg:flex-row items-center justify-between gap-20">
+        
+        {/* LEFT SIDE: THE VISUAL STACK */}
+        
+        <div className="relative w-full lg:w-1/2">
+          {/* Main Image Backdrop */}
+          <div className="relative rounded-[2rem] overflow-hidden shadow-2xl aspect-[4/5] sm:aspect-square lg:aspect-auto lg:h-[600px]">
+            <img 
+              src="https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=800" 
+              alt="Our Restaurant Interior" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+            />
+          </div>
+
+          {/* Floating Info Card */}
+          <div className="absolute bottom-[-40px] right-[-20px] md:right-[-40px] bg-[#1A1A1A] text-white p-8 md:p-10 rounded-[2rem] shadow-2xl max-w-[320px] z-20">
+            <h3 className="text-xl font-bold mb-6 tracking-tight">Come and Visit Us</h3>
+            
+            <ul className="space-y-4">
+              <li className="flex items-start gap-4">
+                <PhoneIcon className="size-5 text-[#AD343E] shrink-0" />
+                <span className="text-sm font-medium text-white/80">(414) 857-0107</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <Mail className="size-5 text-[#AD343E] shrink-0" />
+                <span className="text-sm font-medium text-white/80">happytummy@restaurant.com</span>
+              </li>
+              <li className="flex items-start gap-4">
+                <MapPin className="size-5 text-[#AD343E] shrink-0" />
+                <address className="text-sm font-medium text-white/80 not-italic leading-relaxed">
+                  837 W. Marshall Lane, <br />
+                  Marshalltown, IA 50158
+                </address>
+              </li>
+            </ul>
           </div>
         </div>
-      </div>
 
-      <div className="w-full max-w-[600px] text-center lg:text-left px-2">
-        <div className="text-[32px] sm:text-[40px] lg:text-[50px] font-medium leading-tight">
-          We provide healthy <br /> food for your family.
+        {/* RIGHT SIDE: THE STORY */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-[1.1] tracking-tighter">
+            We provide healthy <br className="hidden lg:block" /> 
+            food for your family.
+          </h2>
+          
+          <div className="mt-8 space-y-6 max-w-[550px] mx-auto lg:mx-0">
+            <p className="text-lg font-bold text-[#1A1A1A]">
+              Our story began with a vision to create a unique dining 
+              experience that merges fine dining with local heart.
+            </p>
+            <p className="text-black/60 leading-relaxed">
+              At Place, we believe that dining is not just about food, but also about the 
+              overall experience. Rooted in the city's rich culinary culture, we aim to 
+              honor our local roots while infusing a global palate.
+            </p>
+            <p className="text-black/60 leading-relaxed">
+              Our staff, renowned for their warmth and dedication, 
+              strives to make every visit an unforgettable event for you and your loved ones.
+            </p>
+          </div>
+
+          <button className="mt-10 group relative inline-flex items-center justify-center px-10 py-4 font-black text-[#1A1A1A] border-2 border-[#1A1A1A] rounded-full overflow-hidden hover:text-white transition-all duration-300">
+            <span className="absolute inset-0 w-0 bg-[#1A1A1A] transition-all duration-300 group-hover:w-full"></span>
+            <span className="relative z-10 uppercase tracking-widest text-sm">More About Us</span>
+          </button>
         </div>
-        <p className="font-medium text-[#333] mt-4 text-[15px] sm:text-[16px]">
-          Our story began with a vision to create a unique dining <br className="hidden sm:block" />
-          experience that merges fine dining, exceptional service, and a <br className="hidden sm:block" />
-          vibrant ambiance. Rooted in the city's rich culinary culture, we aim to <br className="hidden sm:block" />
-          honor our local roots while infusing a global palate.
-        </p>
-        <p className="text-[#333] mt-4 text-[15px] sm:text-[16px]">
-          At Place, we believe that dining is not just about food, but also about the <br className="hidden sm:block" />
-          overall experience. Our staff, renowned for their warmth and dedication, <br className="hidden sm:block" />
-          strives to make every visit an unforgettable event.
-        </p>
-        <button className="mt-6 border-2 w-[180px] h-[50px] font-[550] text-[#333] rounded-[40px] hover:bg-[#333] hover:text-white transition-all">
-          More About Us
-        </button>
       </div>
-    </div>
+    </section>
   );
 }

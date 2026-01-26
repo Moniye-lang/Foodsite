@@ -1,62 +1,97 @@
+import React, { useEffect } from "react";
 import { PhoneIcon, Mail, MapPin } from "lucide-react";
-import { useEffect } from "react";
+
+/**
+ * 10/10 DESIGN REFINEMENTS:
+ * 1. Image Composition: Uses relative/absolute positioning to create a "collage" feel.
+ * 2. Modern Typography: Swapped manual line breaks for 'max-w' constraints for natural flow.
+ * 3. Accessibility: Added descriptive alt text for images.
+ */
 
 export default function About() {
-
   useEffect(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
-    <div className="flex flex-col-reverse lg:flex-row min-h-[70vh] bg-[rgb(128,128,128,15%)] items-center justify-evenly px-[20px] py-[50px] gap-[50px]">
-      <div className="relative flex flex-col items-center">
-        <img
-          src="image 111.png"
-          alt=""
-          className="h-[450px] w-[350px] sm:w-[400px] md:w-[500px] rounded-[10px] object-cover"
-        />
+    <section className="bg-[#F5F5F7] py-20 px-6 lg:py-32 overflow-hidden">
+      <div className="max-w-[1280px] mx-auto flex flex-col lg:flex-row items-center justify-between gap-16 lg:gap-24">
+        
+        {/* LEFT SIDE: THE VISUAL STACK */}
+        
+        <div className="relative w-full lg:w-1/2 flex justify-center lg:justify-start">
+          <div className="relative group">
+            {/* Main Image */}
+            <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
+              <img
+                src="image 111.png"
+                alt="Bistro Bliss welcoming dining area"
+                className="h-[450px] w-full max-w-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+            </div>
 
-        <div className="bg-[#333] text-white w-[280px] sm:w-[320px] h-auto p-5 rounded-[20px] 
-                        mt-5 lg:mt-0 lg:absolute lg:bottom-5 lg:right-[-40px]">
-          <div className="font-[650] text-lg mb-3">Come and Visit Us</div>
+            {/* Floating Contact Card */}
+            <div className="
+              bg-[#1A1A1A] text-white p-8 rounded-[2rem] shadow-2xl
+              w-[300px] md:w-[340px]
+              relative mt-[-60px] mx-auto lg:absolute lg:mt-0 lg:bottom-[-40px] lg:right-[-60px] z-10
+            ">
+              <h3 className="text-xl font-bold mb-6 tracking-tight">Come and Visit Us</h3>
+              
+              <div className="space-y-4">
+                <a href="tel:4148570107" className="flex items-center gap-4 hover:text-[#AD343E] transition-colors">
+                  <PhoneIcon size={18} className="text-[#AD343E]" /> 
+                  <span className="text-sm font-medium">(414) 857-0107</span>
+                </a>
 
-          <p className="flex items-center gap-2 mb-2">
-            <PhoneIcon className="size-[15px]" /> 
-            <span className="text-[14px]">(414)857-0107</span>
-          </p>
+                <a href="mailto:happytummy@restaurant.com" className="flex items-center gap-4 hover:text-[#AD343E] transition-colors">
+                  <Mail size={18} className="text-[#AD343E]" /> 
+                  <span className="text-sm font-medium">happytummy@restaurant.com</span>
+                </a>
 
-          <p className="flex items-center gap-2 mb-2">
-            <Mail className="size-[15px]" /> 
-            <span className="text-[14px]">happytummy@resturant.com</span>
-          </p>
-
-          <p className="flex items-start gap-2">
-            <MapPin className="size-[15px] mt-[3px]" /> 
-            <span className="text-[14px]">
-              837 W. Marshall Lane Marshalltown, <br />
-              IA 50158, Los Angeles
-            </span>
-          </p>
+                <div className="flex items-start gap-4">
+                  <MapPin size={18} className="text-[#AD343E] mt-1 shrink-0" /> 
+                  <span className="text-sm font-medium leading-relaxed">
+                    837 W. Marshall Lane <br />
+                    Marshalltown, IA 50158
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
-      {/* RIGHT TEXT */}
-      <div>
-        <div className="text-[30px] sm:text-[40px] lg:text-[50px] font-medium">
-          We provide healthy <br /> food for your family.
+        {/* RIGHT SIDE: THE STORY */}
+        <div className="w-full lg:w-1/2 text-center lg:text-left">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] leading-[1.1] tracking-tighter">
+            We provide healthy <br className="hidden md:block" /> 
+            food for your family.
+          </h2>
+          
+          <div className="mt-8 space-y-6 max-w-[600px] mx-auto lg:mx-0">
+            <p className="text-lg font-bold text-[#1A1A1A]">
+              Our story began with a vision to create a unique dining 
+              experience that merges fine dining with local heart.
+            </p>
+            <p className="text-black/60 leading-relaxed text-base md:text-lg">
+              At Bistro Bliss, we believe that dining is not just about food, but also about the 
+              overall experience. Rooted in the city's rich culinary culture, we aim to 
+              honor our local roots while infusing a global palate.
+            </p>
+            <p className="text-black/60 leading-relaxed text-base md:text-lg">
+              Our staff, renowned for their warmth and dedication, 
+              strives to make every visit an unforgettable event for you and your loved ones.
+            </p>
+          </div>
+
+          <div className="mt-12">
+             <button className="px-10 py-4 border-2 border-[#1A1A1A] rounded-full font-bold text-[#1A1A1A] hover:bg-[#1A1A1A] hover:text-white transition-all duration-300">
+               Learn More Our Story
+             </button>
+          </div>
         </div>
-        <p className="font-medium text-[#333] mt-3">
-          Our story began with a vision to create a unique dining <br />
-          experience that merges fine dining, exceptional service, and a <br />
-          vibrant ambiance. Rooted in city's rich culinary culture, we aim to <br />
-          honor our local roots while infusing a global palate.
-        </p>
-        <br />
-        <p className="text-[#333]">
-          At place, we believe that dining is not just about food, but also about the <br />
-          overall experience. Our staff, renowned for their warmth and dedication, <br />
-          strives to make every visit an unforgettable event.
-        </p>
+
       </div>
-    </div>
+    </section>
   );
 }

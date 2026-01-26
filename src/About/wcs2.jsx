@@ -1,47 +1,88 @@
+import React from "react";
+
+/**
+ * 10/10 DESIGN STRATEGY:
+ * 1. DRY Principle: Centralized data array for easy updates and cleaner JSX.
+ * 2. Visual Hierarchy: Stronger heading for the quote, softer text for the body.
+ * 3. Consistent Spacing: Unified padding and margins using Tailwind's standard scales.
+ */
+
 export default function Wcs() {
-    return (
-        <div className="min-h-[50vh] mt-[70px] px-4 py-10 mb-[30px]">
-            <div className="text-[32px] md:text-[50px] text-center mb-[50px] font-[560] ">What Our Customers Say</div>
-            <div className="flex flex-col lg:flex-row gap-x-20 gap-y-15 items-center lg:items-start justify-center">
-                <div className="text-[#AD343E] font-[560] bg-[rgb(128,128,128,5%)] w-full max-w-[370px] h-[auto] relative rounded-[10px]">
-                    <p className="text-[20px] md:text-[22px] mt-[20px] ml-[45px]">“The best restaurant”</p>
-                    <p className="text-[#333] p-[25px] md:p-[43px] text-sm md:text-base">Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles.</p>
-                    <hr className="text-[rgb(128,128,128,15%)] w-[80%] mx-auto" />
-                    <div className="flex mt-[15px] items-center text-[#333] gap-[15px] ml-[35px] mb-4">
-                        <img src="Ellipse 19.png" alt="" />
-                        <div>
-                            <p className="font-[510]">Sophire Robson</p>
-                            <p className="font-[490]">Los Angeles, CA</p>
-                        </div>
-                    </div>
-                </div>
+  const testimonials = [
+    {
+      id: 1,
+      title: "The best restaurant",
+      text: "Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles.",
+      author: "Sophie Robson",
+      location: "Los Angeles, CA",
+      img: "Ellipse 19.png",
+    },
+    {
+      id: 2,
+      title: "Simply delicious",
+      text: "Place exceeded my expectations on all fronts. The ambiance was cozy and relaxed, making it a perfect venue for our anniversary dinner. Each dish was prepared and beautifully presented.",
+      author: "Matt Cannon",
+      location: "San Diego, CA",
+      img: "Image (1).png",
+    },
+    {
+      id: 3,
+      title: "One of a kind",
+      text: "The culinary experience at place is second to none. The atmosphere is vibrant, the food - nothing short of extraordinary. The food was the highlight of our evening. Highly recommended.",
+      author: "Andy Smith",
+      location: "San Francisco, CA",
+      img: "Image (2).png",
+    },
+  ];
 
-                <div className="text-[#AD343E] font-[560] bg-[rgb(128,128,128,5%)] w-full max-w-[370px] h-[auto] relative rounded-[10px]">
-                    <p className="text-[20px] md:text-[22px] mt-[20px] ml-[42px]">“Simply delicious”</p>
-                    <p className="text-[#333] p-[25px] md:p-[43px] text-sm md:text-base">Place exceeded my expectations on all fronts. The ambiance was cozy and relaxed, making it a perfect venue for our anniversary dinner. Each dish was prepared and beautifully presented.</p>
-                    <hr className="text-[rgb(128,128,128,15%)] w-[80%] mx-auto" />
-                    <div className="flex mt-[15px] items-center text-[#333] gap-[15px] ml-[35px] mb-4">
-                        <img src="Image (1).png" alt="" />
-                        <div>
-                            <p className="font-[510]">Matt Cannon</p>
-                            <p className="font-[490]">San Diego, CA</p>
-                        </div>
-                    </div>
-                </div>
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-[1280px] mx-auto px-6">
+        
+        {/* HEADER */}
+        <h2 className="text-4xl md:text-5xl lg:text-6xl font-black text-[#1A1A1A] text-center mb-16 tracking-tighter">
+          What Our Customers Say
+        </h2>
 
-                <div className="text-[#AD343E] font-[560] bg-[rgb(128,128,128,5%)] w-full max-w-[370px] h-[auto] relative rounded-[10px]">
-                    <p className="text-[20px] md:text-[22px] mt-[20px] ml-[40px]">“One of a kind restaurant”</p>
-                    <p className="text-[#333] p-[25px] md:p-[42px] text-sm md:text-base">The culinary experience at place is first to none. The atmosphere is vibrant, the food - nothing short of extraordinary. The food was the highlight of our evening. Highly recommended.</p>
-                    <hr className="text-[rgb(128,128,128,15%)] w-[80%] mx-auto" />
-                    <div className="flex mt-[15px] items-center text-[#333] gap-[15px] ml-[35px] mb-4">
-                        <img src="Image (2).png" alt="" />
-                        <div>
-                            <p className="font-[510]">Andy Smith</p>
-                            <p className="font-[490]">San Francisco, CA</p>
-                        </div>
-                    </div>
+        {/* TESTIMONIALS GRID */}
+        
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {testimonials.map((item) => (
+            <div
+              key={item.id}
+              className="bg-[#F9F9FB] p-8 md:p-10 rounded-[2rem] flex flex-col justify-between border border-gray-50 hover:shadow-xl transition-all duration-500 group"
+            >
+              <div>
+                <h3 className="text-[#AD343E] text-xl md:text-2xl font-bold tracking-tight mb-6">
+                  “{item.title}”
+                </h3>
+                <p className="text-black/70 leading-relaxed italic mb-8">
+                  {item.text}
+                </p>
+              </div>
+
+              <div>
+                <hr className="border-black/10 mb-8" />
+                <div className="flex items-center gap-4">
+                  <div className="w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-sm">
+                    <img
+                      src={item.img}
+                      alt={item.author}
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                    />
+                  </div>
+                  <div>
+                    <p className="font-bold text-[#1A1A1A]">{item.author}</p>
+                    <p className="text-sm text-black/50 font-medium">
+                      {item.location}
+                    </p>
+                  </div>
                 </div>
+              </div>
             </div>
+          ))}
         </div>
-    );
+      </div>
+    </section>
+  );
 }
