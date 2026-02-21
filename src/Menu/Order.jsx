@@ -6,12 +6,12 @@ export default function Order() {
     { name: "GRUBHUB", color: "#F63440", type: "text", bold: true },
     { name: "Postmates", color: "#000000", type: "text" },
     // Assuming these images are already colored versions
-    { src: "Vector (2).png", type: "image" }, 
-    { src: "Group.png", type: "image" },
-    { src: "Vector (4).png", type: "image" },
-    { src: "Group 39981.png", type: "image" },
-    { src: "Vector (5).png", type: "image" },
-    { src: "Group 39979.png", type: "image" },
+    { src: "Vector (2).webp", type: "image" }, 
+    { src: "Group.webp", type: "image" },
+    { src: "Vector (4).webp", type: "image" },
+    { src: "Group 39981.webp", type: "image" },
+    { src: "Vector (5).webp", type: "image" },
+    { src: "Group 39979.webp", type: "image" },
   ];
 
   return (

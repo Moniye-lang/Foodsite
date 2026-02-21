@@ -1,7 +1,7 @@
 export const Maindata = [
   {
     id: 1,
-    img: '/pexels-ivan-samkov-8951199 1.png',
+    img: '/pexels-ivan-samkov-8951199 1.webp',
     date: 'January 3, 2023',
     title: 'How to prepare a delicious gluten free sushi',
     header: 'The secret tips & tricks to prepare a perfect burger & pizza for our customers',
@@ -16,7 +16,7 @@ export const Maindata = [
   },
   {
     id: 2,
-    img: '/pexels-skyler-ewing-10307512 1.png',
+    img: '/pexels-skyler-ewing-10307512 1.webp',
     date: 'January 3, 2023',
     title: 'Exclusive baking lessons from the pastry king',
     header: 'The secret tips & tricks to prepare a perfect cake like a pro',
@@ -31,7 +31,7 @@ export const Maindata = [
   },
   {
     id: 3,
-    img: '/pexels-suzy-hazelwood-2966196 1 (2).png',
+    img: '/pexels-suzy-hazelwood-2966196 1 (2).webp',
     date: 'January 3, 2023',
     title: 'How to prepare the perfect fries in an air fryer',
     header: 'The secret tips & tricks to prepare crispy air fryer fries',
@@ -46,7 +46,7 @@ export const Maindata = [
   },
   {
     id: 4,
-    img: '/pexels-leonardo-luz-13998974 1 (1).png',
+    img: '/pexels-leonardo-luz-13998974 1 (1).webp',
     date: 'January 3, 2023',
     title: 'How to prepare delicious chicken tenders',
     header: 'The secret tips & tricks to make juicy, crispy chicken tenders',
@@ -61,7 +61,7 @@ export const Maindata = [
   },
   {
     id: 5,
-    img: '/pexels-marta-dzedyshko-2067396 1.png',
+    img: '/pexels-marta-dzedyshko-2067396 1.webp',
     date: 'January 3, 2023',
     title: '5 great cooking gadgets you can buy to save time',
     header: 'Top 5 time-saving kitchen tools you’ll love',
@@ -76,7 +76,7 @@ export const Maindata = [
   },
   {
     id: 6,
-    img: '/pexels-valeria-boltneva-1833337 1.png',
+    img: '/pexels-valeria-boltneva-1833337 1.webp',
     date: 'January 3, 2023',
     title: 'The secret tips & tricks to prepare a perfect burger',
     header: 'Ultimate guide to making a restaurant-style burger at home',
@@ -91,7 +91,7 @@ export const Maindata = [
   },
   {
     id: 7,
-    img: '/pexels-sebastian-coman-photography-3791088 1 (1).png',
+    img: '/pexels-sebastian-coman-photography-3791088 1 (1).webp',
     date: 'January 3, 2023',
     title: '7 delicious cheesecake recipes you can prepare',
     header: 'Cheesecake lovers, these 7 recipes are for you!',
@@ -106,7 +106,7 @@ export const Maindata = [
   },
   {
     id: 8,
-    img: '/pexels-katerina-holmes-5908226 1.png',
+    img: '/pexels-katerina-holmes-5908226 1.webp',
     date: 'January 3, 2023',
     title: '5 great pizza restaurants you should visit this city',
     header: 'Discover the best pizza spots in your area',
@@ -121,7 +121,7 @@ export const Maindata = [
   },
   {
     id: 9,
-    img: '/pexels-irina-bogodukhova-9032910 1 (2).png',
+    img: '/pexels-irina-bogodukhova-9032910 1 (2).webp',
     date: 'January 3, 2023',
     title: '5 great cooking gadgets you can buy to save time',
     header: 'Kitchen gadgets that transform how you cook',
@@ -136,7 +136,7 @@ export const Maindata = [
   },
   {
     id: 10,
-    img: '/pexels-nishant-aneja-2955819 1.png',
+    img: '/pexels-nishant-aneja-2955819 1.webp',
     date: 'January 3, 2023',
     title: 'How to prepare a delicious gluten free sushi',
     header: 'Master the art of gluten-free sushi making at home',
@@ -151,7 +151,7 @@ export const Maindata = [
   },
   {
     id: 11,
-    img: '/pexels-jan-n-g-u-y-e-n-🍁-2664216 1.png',
+    img: '/pexels-jan-n-g-u-y-e-n-🍁-2664216 1.webp',
     date: 'January 3, 2023',
     title: 'Top 20 simple and quick desserts for kids',
     header: 'Fun, easy desserts kids can make and love',
@@ -166,7 +166,7 @@ export const Maindata = [
   },
   {
     id: 12,
-    img: '/pexels-igor-ovsyannykov-205961 1 (1).png',
+    img: '/pexels-igor-ovsyannykov-205961 1 (1).webp',
     date: 'January 3, 2023',
     title: 'Top 20 simple and quick desserts for kids',
     header: 'Treat your kids with these fun and tasty desserts',

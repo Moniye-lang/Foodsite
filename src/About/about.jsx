@@ -24,7 +24,7 @@ export default function About() {
             {/* Main Image */}
             <div className="overflow-hidden rounded-[2.5rem] shadow-2xl">
               <img
-                src="image 111.png"
+                src="image 111.webp"
                 alt="Bistro Bliss welcoming dining area"
                 className="h-[450px] w-full max-w-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
               />

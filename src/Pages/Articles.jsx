@@ -82,7 +82,7 @@ export default function Articles() {
 
         {/* SECONDARY IMAGE */}
         <img
-          src="/pexels-suzy-hazelwood-2966196 1 (1).png"
+          src="/pexels-suzy-hazelwood-2966196 1 (1).webp"
           alt="Atmospheric detail"
           className="w-full rounded-[2rem] mb-12"
         />

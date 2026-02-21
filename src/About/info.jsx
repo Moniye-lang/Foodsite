@@ -63,7 +63,7 @@ export default function Info() {
             
             <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-white">
               <img
-                src="pexels-cottonbro-studio-4252139 1.png"
+                src="pexels-cottonbro-studio-4252139 1.webp"
                 alt="Our professional culinary team in action"
                 className="w-full h-full object-cover aspect-[4/5] hover:scale-105 transition-transform duration-700"
               />

@@ -15,7 +15,7 @@ export default function Wcs() {
       text: "Last night, we dined at place and were simply blown away. From the moment we stepped in, we were enveloped in an inviting atmosphere and greeted with warm smiles.",
       author: "Sophie Robson",
       location: "Los Angeles, CA",
-      img: "Ellipse 19.png",
+      img: "Ellipse 19.webp",
     },
     {
       id: 2,
@@ -23,7 +23,7 @@ export default function Wcs() {
       text: "Place exceeded my expectations on all fronts. The ambiance was cozy and relaxed, making it a perfect venue for our anniversary dinner. Each dish was prepared and beautifully presented.",
       author: "Matt Cannon",
       location: "San Diego, CA",
-      img: "Image (1).png",
+      img: "Image (1).webp",
     },
     {
       id: 3,
@@ -31,7 +31,7 @@ export default function Wcs() {
       text: "The culinary experience at place is second to none. The atmosphere is vibrant, the food - nothing short of extraordinary. The food was the highlight of our evening. Highly recommended.",
       author: "Andy Smith",
       location: "San Francisco, CA",
-      img: "Image (2).png",
+      img: "Image (2).webp",
     },
   ];
 

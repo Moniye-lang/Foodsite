@@ -22,7 +22,7 @@ export default function Footer() {
           {/* BRAND SECTION */}
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <img src="japanese-food.png" alt="Logo" className="h-10 w-auto" />
+              <img src="japanese-food.webp" alt="Logo" className="h-10 w-auto" />
               <span className="text-3xl font-black tracking-tighter italic">Bistro Bliss</span>
             </div>
             <p className="text-white/60 leading-relaxed max-w-[280px]">

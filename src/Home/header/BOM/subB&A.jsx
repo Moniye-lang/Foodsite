@@ -36,7 +36,7 @@ export default function SubBandA() {
             <div className="bg-white rounded-[2rem] overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
               <div className="aspect-video overflow-hidden">
                 <img
-                  src="pexels-andra-918581 1.png"
+                  src="pexels-andra-918581 1.webp"
                   alt="Perfect burger and pizza"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />

@@ -23,7 +23,7 @@ export default function Delivery() {
         <div className="w-full lg:w-1/2 flex gap-4 md:gap-6">
           <div className="w-3/5">
             <img 
-              src="mid-shot-chef-holding-plate-with-pasta-making-ok-sign 1.png" 
+              src="mid-shot-chef-holding-plate-with-pasta-making-ok-sign 1.webp" 
               alt="Professional Chef" 
               className="w-full h-full object-cover rounded-[2rem] shadow-xl"
             />
@@ -31,14 +31,14 @@ export default function Delivery() {
           <div className="w-2/5 flex flex-col gap-4 md:gap-6">
             <div className="h-1/2">
               <img 
-                src="sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food 1.png" 
+                src="sour-curry-with-snakehead-fish-spicy-garden-hot-pot-thai-food 1.webp" 
                 alt="Thai Food Hot Pot" 
                 className="w-full h-full object-cover rounded-[2rem] shadow-lg"
               />
             </div>
             <div className="h-1/2">
               <img 
-                src="sadj-iron-pot-with-various-salads 1.png" 
+                src="sadj-iron-pot-with-various-salads 1.webp" 
                 alt="Fresh Salads" 
                 className="w-full h-full object-cover rounded-[2rem] shadow-lg"
               />
